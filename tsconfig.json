@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es6",                               
+    "module": "commonjs",                             
+    "baseUrl": "./src",
+    "rootDir": "./src",                            
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@config/*": ["config/*"],
+      "@shared/*": ["shared/*"],
+      "@utils/*": ["utils/*"]
+    },     
+    "esModuleInterop": true,                       
+    "experimentalDecorators": true,             
+    "emitDecoratorMetadata": true, 
+    "skipLibCheck": true,                          
+    "forceConsistentCasingInFileNames": true, 
+    "resolveJsonModule": true,
+    "outDir": "./build"
+  }
+}
