@@ -1,7 +1,7 @@
+import { User } from "../infra/entities/user"
+
 export interface ICreateTopicDTO {
     title: string
-    messages: Array<{
-        content: string,
-        author: string
-    }>
+    content: string
+    userId: string
 }

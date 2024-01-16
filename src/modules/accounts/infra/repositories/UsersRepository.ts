@@ -45,4 +45,12 @@ export class UserRepository implements IUserRepository {
             return Promise.reject(error)
         }
     }
+
+    async findById(id: string): Promise<User> {
+        try {
+            return await this.userRepository.findOne({where: { id}})
+        } catch (error) {
+            return Promise.reject(error)
+        }
+    }
 }

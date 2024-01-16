@@ -17,10 +17,10 @@ export class Message {
     author: string
 
     @ManyToOne(() => Topic, topic => topic.messages)
-    @JoinColumn({ name: "topicId" })
+    @JoinColumn({ name: "topic" })
     topic: Topic;
 
-    @CreateDateColumn({default: Date.now()})
+    @CreateDateColumn({default: new Date(Date.now())})
     created_at: Date;
 
     constructor() {

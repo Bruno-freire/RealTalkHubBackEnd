@@ -1,7 +1,6 @@
 import { container, injectable } from "tsyringe";
 import { NextFunction, Request, Response } from "express";
 import { showTopicUseCase } from "./showTopicUseCase";
-import { ICreateTopicDTO } from "@modules/accounts/dtos/ICreateTopicDTO";
 
 @injectable()
 class ShowTopicController {
