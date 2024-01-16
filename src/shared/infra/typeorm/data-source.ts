@@ -7,7 +7,7 @@ const isProduction = process.env.NODE_ENV === 'production'
 
 export const AppDataSource = new DataSource({
     type: 'postgres',
-    url: 'postgres://qplzhtzc:2d2IZRJDGqTfO7UqSJ3NWHvS3mWDx-m7@tuffi.db.elephantsql.com/qplzhtzc',
+    url: process.env.URL,
     synchronize: true,
     logging: true,
     entities: [
