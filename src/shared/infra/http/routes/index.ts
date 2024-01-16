@@ -10,4 +10,4 @@ router.use("/users", accounts)
 // router.use("/auth", authenticationRoutes)
 router.use("topic", topicRoutes)
 
-export {router}
+export { router }

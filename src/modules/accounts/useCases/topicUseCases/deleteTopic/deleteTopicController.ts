@@ -1,14 +1,14 @@
 import { container, injectable } from "tsyringe";
 import { NextFunction, Request, Response } from "express";
-import { showTopicUseCase } from "./showTopicUseCase";
+import { deleteTopicUseCase } from "./deleteTopicUseCase";
 
 @injectable()
-class ShowTopicController {
+class DeleteTopicController {
     
     async handle(request: Request, response: Response, next: NextFunction): Promise<Response> {
       try { 
         const { id } = request.params
-        const topic = await showTopicUseCase.execute(id);
+        const topic = await deleteTopicUseCase.execute(id);
         
         return response.status(200).json(topic);
       } catch (err) {
@@ -18,4 +18,4 @@ class ShowTopicController {
     
 }
 
-export const showTopicController = container.resolve(ShowTopicController)
+export const deleteTopicController = container.resolve(DeleteTopicController)
