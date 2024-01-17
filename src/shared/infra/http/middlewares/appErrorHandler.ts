@@ -16,6 +16,22 @@ export const appErrorHandler = (
     });
   }
   if (err instanceof ZodError) {
+    const validationErrors: string[] = [];
+
+    err.errors.forEach((error) => {
+      if (error.path && error.message === 'Required') {
+        const fieldName = error.path[error.path.length - 1];
+        validationErrors.push(`Field '${fieldName}' is required.`);
+      }
+    });
+
+    if (validationErrors.length > 0) {
+      return response.status(400).json({
+        status: "Validation Error",
+        errors: validationErrors,
+      });
+    }
+    
     return response.status(400).json({
       status: "Validation Error",
       errors: err.errors.map((error) => error.message),
