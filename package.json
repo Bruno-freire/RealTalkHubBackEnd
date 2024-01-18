@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/shared/infra/http/server.js",
     "dev": "ts-node-dev -r tsconfig-paths/register src/shared/infra/http/server.ts",
-    "build": "npm install && npx babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
+    "build": "npm install && babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
