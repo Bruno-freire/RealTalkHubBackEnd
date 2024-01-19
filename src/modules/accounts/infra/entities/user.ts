@@ -4,7 +4,7 @@ import { Message } from "./message";
 import { Topic } from "./topic";
 
 @Entity("User")
-@Unique(["name"])
+@Unique(["email"])
 export class User {
 
     @PrimaryGeneratedColumn("uuid")
