@@ -3,7 +3,7 @@ import { showUserUseCase } from "./showUserUseCase";
 import { container, injectable } from "tsyringe";
 
 @injectable()
-class ShowUserController {
+class ShowUsersController {
     
     async handle(request: Request, response: Response, next: NextFunction): Promise<Response> {
         try {
@@ -17,4 +17,4 @@ class ShowUserController {
     
 }
 
-export const showUserController = container.resolve(ShowUserController)
+export const showUsersController = container.resolve(ShowUsersController)

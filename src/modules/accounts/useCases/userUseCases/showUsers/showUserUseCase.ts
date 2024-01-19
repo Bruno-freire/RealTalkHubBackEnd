@@ -3,7 +3,7 @@ import { IUserRepository } from "@modules/accounts/interfaces/IUserRepository";
 import { container, inject, injectable } from "tsyringe";
 
 @injectable()
-class ShowUserUseCase {
+class ShowUsersUseCase {
     constructor(
         @inject("UsersRepository")
         private usersRepository: IUserRepository
@@ -19,4 +19,4 @@ class ShowUserUseCase {
     }
 }
 
-export const showUserUseCase = container.resolve(ShowUserUseCase);
+export const showUsersUseCase = container.resolve(ShowUsersUseCase);
