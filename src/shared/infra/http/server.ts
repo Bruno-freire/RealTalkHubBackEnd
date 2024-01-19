@@ -1,6 +1,8 @@
+import "../../../utils/setup-aliases"
+import 'reflect-metadata'
+
 import dotenv from "dotenv";
 dotenv.config();
-import 'reflect-metadata'
 import { server } from "./app";
 
 const port = process.env.PORT || 3333;
