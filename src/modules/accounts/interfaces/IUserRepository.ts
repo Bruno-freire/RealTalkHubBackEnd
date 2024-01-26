@@ -7,4 +7,5 @@ export interface IUserRepository {
     updatedUser(user: User): Promise<User>
     findByEmail(email: string): Promise<User>
     findById(id: string): Promise<User>
+    userWithTopics(email: string): Promise<User>
 }

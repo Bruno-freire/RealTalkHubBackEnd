@@ -29,9 +29,9 @@ export class TopicsRepository implements ITopicsRepository {
         }
     }
 
-    async createTopic(title: string, content: string, user: User): Promise<Topic> {
+    async createTopic(title: string, user: User): Promise<Topic> {
         try {
-            return await this.topicRepository.save({title, content, user})
+            return await this.topicRepository.save({title, user})
         } catch (error) {
             return Promise.reject(error)
         }

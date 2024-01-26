@@ -31,7 +31,9 @@ export class UserRepository implements IUserRepository {
 
     async updatedUser(user: User): Promise<User> {
         try {
-            return await this.userRepository.save(user) 
+            await this.userRepository.update( {id: user.id}, user) 
+            const userUpdated = await this.userRepository.findOne({where: { email: user.email}})
+            return userUpdated
         } catch (error) {
             return Promise.reject(error)
         }   
@@ -39,6 +41,7 @@ export class UserRepository implements IUserRepository {
 
     async findByEmail(email: string): Promise<User> {
         try {
+            console.log(email)
             const user = await this.userRepository.findOne({where: { email }})
             return user
         } catch (error) {
@@ -49,6 +52,15 @@ export class UserRepository implements IUserRepository {
     async findById(id: string): Promise<User> {
         try {
             return await this.userRepository.findOne({where: { id}})
+        } catch (error) {
+            return Promise.reject(error)
+        }
+    }
+
+    async userWithTopics(email: string): Promise<User> {
+        try {
+            const user = await this.userRepository.findOne({where: {email}, relations: ["topics"]})  
+            return user
         } catch (error) {
             return Promise.reject(error)
         }

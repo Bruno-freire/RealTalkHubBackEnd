@@ -12,11 +12,16 @@ class CreateTopicUseCase {
         private usersRepository: IUserRepository
     ) {}
 
-    async execute(title: string, content: string, userID: string): Promise<Topic> {
+    async execute(title: string, userID: string): Promise<Topic> {
         try {
             const id = userID
             const user = await this.usersRepository.findById(id)
-            return await this.topicsRepository.createTopic(title, content, user)
+            const userWithTopic = await this.usersRepository.userWithTopics(user.email)
+            const topic = await this.topicsRepository.createTopic(title, user) 
+            userWithTopic.topics.push(topic)
+            
+            await this.usersRepository.updatedUser(userWithTopic)
+            return topic
         } catch (error) {
             return Promise.reject(error);
         }

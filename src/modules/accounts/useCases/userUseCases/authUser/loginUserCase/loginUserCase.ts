@@ -31,7 +31,7 @@ class LoginUserUseCase {
     async execute(email: string, password: string): Promise<User> {
         try {
             const validatedData = await this.validateLoginData(email, password);
-
+            
             const user = await this.usersRepository.findByEmail(validatedData.email)
             
             if(!user){

@@ -2,15 +2,15 @@ import "reflect-metadata";
 import "@shared/container";
 import cors from "cors";
 import dotenv from "dotenv";
-import express, { NextFunction, Request, Response } from "express";
+import express from "express";
 import { AppDataSource } from "../typeorm/data-source";
 import '../../container'
 import { router } from "./routes";
-import { AppError } from "@shared/errors/AppError";
 import { appErrorHandler } from "./middlewares/appErrorHandler";
 import WebSocket from 'ws';
 import http from 'http';
 import WebSocketService from "@modules/websockets/webSocketService";
+import morgan from "morgan";
 
 dotenv.config();
 
@@ -25,6 +25,8 @@ AppDataSource.initialize().then(async () => {
 app.use(cors());
 
 app.use(express.json());
+
+app.use(morgan('dev'))
 
 app.use(router)
 

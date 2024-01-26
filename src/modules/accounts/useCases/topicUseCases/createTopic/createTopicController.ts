@@ -8,8 +8,8 @@ class CreateTopicController {
     
     async handle(request: Request, response: Response, next: NextFunction): Promise<Response> {
       try { 
-        const { title, content, userId  } = request.body as ICreateTopicDTO
-        const topic = await createTopicUseCase.execute(title, content, userId);
+        const { title, userId  } = request.body as ICreateTopicDTO
+        const topic = await createTopicUseCase.execute(title, userId);
         
         return response.status(200).json(topic);
       } catch (err) {
