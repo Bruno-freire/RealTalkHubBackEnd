@@ -9,7 +9,7 @@ export const AppDataSource = new DataSource({
     type: 'postgres',
     url: process.env.URL,
     synchronize: true,
-    logging: true,
+    logging: false,
     entities: [
         isProduction ? "dist/modules/**/infra/entities/**.js" : "src/modules/**/infra/entities/**.ts"
     ],

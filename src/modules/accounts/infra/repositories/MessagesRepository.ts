@@ -25,7 +25,7 @@ export class MessageRepository implements IMessageRepository {
     }
 
     async getMessagesByTopic(topicId: string): Promise<Message[]> {
-        const messages = await this.messageRepository.find({where: {topic: {id: topicId}}})
+        const messages = await this.messageRepository.find({where: {topic: {id: topicId}}, relations: ["author"], order: { created_at: "asc"}})
         return messages
     }
     
