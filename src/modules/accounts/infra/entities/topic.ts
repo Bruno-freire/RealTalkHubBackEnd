@@ -13,14 +13,12 @@ export class Topic {
     @Column()
     title: string
 
-    @OneToMany(() => Message, message => message.topic)
-    messages: Message[];
+    @OneToMany(() => Message, message => message.topic, {cascade: true, onDelete: "CASCADE"})
+    messages?: Message[];
 
     @ManyToOne(() => User, user => user.topics)
-    @JoinColumn({ name: "user" })
     user: User;
     
-
     constructor() {
         if (!this.id) {
           this.id = uuidV4();

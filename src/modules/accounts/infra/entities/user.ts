@@ -19,10 +19,10 @@ export class User {
     @Column()
     password: string
 
-    @OneToMany(() => Message, message => message.author)
+    @OneToMany(() => Message, message => message.author, {cascade: true})
     messages: Message[];
 
-    @OneToMany(() => Topic, topic => topic.user)
+    @OneToMany(() => Topic, topic => topic.user, {cascade: true})
     topics: Topic[];
 
     constructor() {

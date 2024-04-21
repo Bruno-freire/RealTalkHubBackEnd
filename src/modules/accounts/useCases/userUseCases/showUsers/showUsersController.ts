@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { showUsersUseCase } from "./showUserUseCase";
+import { showUsersUseCase } from "./showUsersUseCase";
 import { container, injectable } from "tsyringe";
 
 @injectable()

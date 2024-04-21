@@ -12,12 +12,10 @@ export class Message {
     @Column()
     content: string
 
-    @ManyToOne(() => User, user => user.id)
-    @JoinColumn({ name: "author" })
-    author: string
+    @ManyToOne(() => User, user => user.messages)
+    author?: User
 
-    @ManyToOne(() => Topic, topic => topic.messages)
-    @JoinColumn({ name: "topic" })
+    @ManyToOne(() => Topic, topic => topic.messages, {onDelete: "CASCADE"})
     topic: Topic;
 
     @CreateDateColumn({default: new Date(Date.now())})

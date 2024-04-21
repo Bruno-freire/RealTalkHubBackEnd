@@ -1,7 +1,7 @@
-import { showUserController } from "@modules/accounts/useCases/showUser/showUserController";
+import { showUserController } from "@modules/accounts/useCases/userUseCases/showUser/showUserController";
 import { createUserController } from "@modules/accounts/useCases/userUseCases/createUser/createUserController";
 import { showUserWithTopicsController } from "@modules/accounts/useCases/userUseCases/showUserWithTopics/showUserWithTopicsController";
-import { showUsersController } from "@modules/accounts/useCases/userUseCases/showUsers/showUserController";
+import { showUsersController } from "@modules/accounts/useCases/userUseCases/showUsers/showUsersController";
 import { Router } from "express";
 
 const accounts = Router()

@@ -37,6 +37,7 @@ export const appErrorHandler = (
       errors: err.errors.map((error) => error.message),
     });
   }
+  console.log(err)
   return response.status(500).json({
     status: "Error",
     Message: `Internal server error - ${err.message}`,

@@ -16,11 +16,8 @@ class CreateTopicUseCase {
         try {
             const id = userID
             const user = await this.usersRepository.findById(id)
-            const userWithTopic = await this.usersRepository.userWithTopics(user.email)
-            const topic = await this.topicsRepository.createTopic(title, user) 
-            userWithTopic.topics.push(topic)
-            
-            await this.usersRepository.updatedUser(userWithTopic)
+            const topic = await this.topicsRepository.createTopic(title, user)
+        
             return topic
         } catch (error) {
             return Promise.reject(error);
